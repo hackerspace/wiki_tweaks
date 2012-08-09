@@ -1,0 +1,145 @@
+/* CSS placed here will be applied to all skins */
+@import url("/resources/font/font-awesome.css");
+
+#b48mw-events i, #b48mw-news i {
+  color: #cb0000;
+}
+
+#b48mw-featured-project {
+  float: right;
+  margin-right: 5px;
+  width: 33%;
+}
+
+.b48mw-featured-project-container {
+  width: 100%;
+  padding-left: 10px;
+}
+
+.b48mw-featured-project-container img {
+  border: 1px dotted #CCC;
+}
+
+.b48mw-featured-project-container .b48mw-project-description {
+  text-align: left;
+}
+.b48mw-project-description {
+  padding-top: 10px;
+}
+
+#b48mw-featured-project div {
+  display: block;
+  overflow: auto;
+}
+#b48mw-featured-project .editsection {
+  display: none;
+}
+#b48mw-featured-project ul {
+  list-style: none;
+  list-style-type: none;
+  margin: 15px 0;
+}
+
+.b48mw-code-box {
+  overflow: auto;
+}
+
+#b48mw-events {
+  float: left;
+  width: 33%;
+}
+
+#b48mw-events .editsection {
+  display: none;
+}
+#b48mw-events div {
+  padding-left: 10px;
+}
+
+#b48mw-events-box, #b48mw-news-box {
+  padding-left: 10px;
+}
+
+.b48mw-black a:visited {
+  color: black;
+}
+
+.b48mw-black a {
+  color: black;
+}
+
+.b48mw-hidden-templates {
+  display: none;
+}
+
+.b48mw-event-list {
+  color: #333;
+}
+
+.b48mw-event-info {
+  display: block;
+  margin-left: 20px;
+  font-family: Verdana,Arial;
+}
+
+.b48mw-event-date {
+  display: block;
+  margin-top: 10px;
+}
+
+.b48mw-event-date:first {
+  margin-top: 5px;
+}
+
+.b48mw-event-time {
+}
+
+#b48mw-news {
+  float: left;
+  width: 33%;
+}
+
+#b48mw-news .editsection {
+  display: none;
+}
+
+.b48mw-news-list {
+  background-color: transparent;
+  border-top: 0;
+  padding: 0px;
+  margin: 0px;
+}
+
+.b48mw-news-date {
+  font-weight: bold;
+  margin-top:10px;
+}
+
+.b48mw-news-content {
+  overflow: auto;
+  width: 100%;
+  margin: 0px;
+}
+
+.b48mw-news-content-wrap {
+  margin: 0 20px 0 20px;
+}
+
+.page-Main_Page table th:nth-child(1) {
+  width:300px;
+}
+.page-Main_Page table th:nth-child(2) {
+
+}
+.page-Main_Page table th:nth-child(3) {
+  width:100px;
+}
+.page-Main_Page table th:nth-child(4) {
+  width:40px;
+}
+.page-Main_Page table th:nth-child(5) {
+  width:63px;
+}
+.page-Main_Page table th:nth-child(6) {
+  width:150px;
+}
