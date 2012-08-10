@@ -225,7 +225,7 @@ B48NS.applyStyleToEventBox = function() {
   for( idx in data ) {
     var mres = data[idx].match(/^(\d\d\d\d-\d\d-\d\d\s+\d\d:\d\d)\s+(.*)$/);
     if( mres ) {
-      var d = Date.parse(mres[1]);
+      var d = new Date(Date.parse(mres[1]));
       datesList[datesList.length] = d.getTime();
       datesMap[d.getTime()] = mres[2];
     }
