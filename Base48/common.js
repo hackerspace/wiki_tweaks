@@ -279,7 +279,7 @@ B48NS.applyStyleToEventBox = function() {
         if( !(evdate.getTime() in datesMap) ) {
             datesMap[stamp] = [];
         }        
-        datesMap[stamp][dateMap[stamp].length] = { title: mres[4], regular: true };
+        datesMap[stamp][datesMap[stamp].length] = { title: mres[4], regular: true };
       }
     }
   }
@@ -294,7 +294,7 @@ B48NS.applyStyleToEventBox = function() {
       if( !(evdate.getTime() in datesMap) ) {
         datesMap[stamp] = [];
       }        
-      datesMap[stamp][dateMap[stamp].length] = { title: mres[4], regular: false };
+      datesMap[stamp][datesMap[stamp].length] = { title: mres[4], regular: false };
     }
   }
 
