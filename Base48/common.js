@@ -300,7 +300,7 @@ B48NS.applyStyleToEventBox = function() {
     if( ts.charAt(ts.length - 1) == 'O' ) {
         highlightClass = ' b48mw-highlighted-event';
     }
-    ts = ts.slice(0, -1);
+    ts = parseInt(ts.slice(0, -1));
     var d = new Date(ts);
     var evname = datesMap[ts];
 
