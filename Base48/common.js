@@ -226,8 +226,8 @@ B48NS.applyStyleToEventBox = function() {
     var mres = data[idx].match(/^(\d\d\d\d)-(\d\d)-(\d\d)\s+(\d\d):(\d\d)\s+(.*)$/);
     if( mres ) {
       var d = new Date(mres[1], mres[2]-1, mres[3], mres[4], mres[5], 0, 0);
-      datesList[datesList.length] = 'O' + d.getTime();
-      datesMap['O' + d.getTime()] = mres[6];
+      datesList[datesList.length] = d.getTime() + 'O';
+      datesMap[d.getTime()] = mres[6];
     }
   }
 
@@ -283,8 +283,8 @@ B48NS.applyStyleToEventBox = function() {
             evdate.setHours( evdate.getHours() - 1 );
           }
         }
-        datesList[datesList.length] = 'R' + evdate.getTime();
-        datesMap['R' + evdate.getTime()] = mres[4];
+        datesList[datesList.length] = evdate.getTime() + 'R';
+        datesMap[evdate.getTime()] = mres[4];
       }
     }
   }
@@ -297,10 +297,10 @@ B48NS.applyStyleToEventBox = function() {
   for( idx in datesList ) {
     var ts = datesList[idx];
     var highlightClass = '';
-    if( ts.charAt(0) == 'O' ) {
+    if( ts.charAt(ts.length - 1) == 'O' ) {
         highlightClass = ' b48mw-highlighted-event';
     }
-    ts = ts.substr(1);
+    ts = ts.slice(-1);
     var d = new Date(ts);
     var evname = datesMap[ts];
 
