@@ -294,7 +294,7 @@ B48NS.applyStyleToEventBox = function() {
       if( !(evdate.getTime() in datesMap) ) {
         datesMap[stamp] = [];
       }        
-      datesMap[stamp][datesMap[stamp].length] = { title: mres[4], regular: false };
+      datesMap[stamp][datesMap[stamp].length] = { title: mres[6], regular: false };
     }
   }
 
@@ -307,7 +307,7 @@ B48NS.applyStyleToEventBox = function() {
     var ts = datesList[idx];
     for( didx in datesMap[ts] ) {
       var highlightClass = '';
-      if( datesMap[ts][didx].regular === true ) {
+      if( datesMap[ts][didx].regular === false ) {
         highlightClass = ' b48mw-highlighted-event';
       }
       var d = new Date(ts);
