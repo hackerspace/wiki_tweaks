@@ -310,7 +310,6 @@ B48NS.applyStyleToEventBox = function() {
       if( datesMap[ts][didx].regular === true ) {
         highlightClass = ' b48mw-highlighted-event';
       }
-      ts = parseInt(ts.slice(0, -1));
       var d = new Date(ts);
       var evname = datesmap[ts][didx].title;
 
