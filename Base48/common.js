@@ -222,15 +222,6 @@ B48NS.applyStyleToEventBox = function() {
   // Timestamp : content
   var datesMap = {};
 
-  for( idx in data ) {
-    var mres = data[idx].match(/^(\d\d\d\d)-(\d\d)-(\d\d)\s+(\d\d):(\d\d)\s+(.*)$/);
-    if( mres ) {
-      var d = new Date(mres[1], mres[2]-1, mres[3], mres[4], mres[5], 0, 0);
-      datesList[datesList.length] = d.getTime() + 'O';
-      datesMap[d.getTime()] = mres[6];
-    }
-  }
-
   var dayMapping = {
     'SUN':0,
     'MON':1,
@@ -286,6 +277,16 @@ B48NS.applyStyleToEventBox = function() {
         datesList[datesList.length] = evdate.getTime() + 'R';
         datesMap[evdate.getTime()] = mres[4];
       }
+    }
+  }
+
+  // Process non regular events after the regular events - so those get overwritten and not the non-regular ones
+  for( idx in data ) {
+    var mres = data[idx].match(/^(\d\d\d\d)-(\d\d)-(\d\d)\s+(\d\d):(\d\d)\s+(.*)$/);
+    if( mres ) {
+      var d = new Date(mres[1], mres[2]-1, mres[3], mres[4], mres[5], 0, 0);
+      datesList[datesList.length] = d.getTime() + 'O';
+      datesMap[d.getTime()] = mres[6];
     }
   }
 
