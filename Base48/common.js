@@ -10,7 +10,7 @@ if( typeof(String.prototype.capitalize) === "undefined" )
 
 if(typeof(String.prototype.trimRight) === "undefined")
 {
-    String.prototype.trimRight = function() 
+    String.prototype.trimRight = function()
     {
         return String(this).replace(/\s+$/g, '');
     };
@@ -18,7 +18,7 @@ if(typeof(String.prototype.trimRight) === "undefined")
 
 if(typeof(String.prototype.trimLeft) === "undefined")
 {
-    String.prototype.trimLeft = function() 
+    String.prototype.trimLeft = function()
     {
         return String(this).replace(/^\s+/g, '');
     };
@@ -26,7 +26,7 @@ if(typeof(String.prototype.trimLeft) === "undefined")
 
 if(typeof(String.prototype.trim) === "undefined")
 {
-    String.prototype.trim = function() 
+    String.prototype.trim = function()
     {
         return String(this).replace(/^\s+|\s+$/g, '');
     };
@@ -226,8 +226,8 @@ B48NS.applyStyleToEventBox = function() {
     var mres = data[idx].match(/^(\d\d\d\d)-(\d\d)-(\d\d)\s+(\d\d):(\d\d)\s+(.*)$/);
     if( mres ) {
       var d = new Date(mres[1], mres[2]-1, mres[3], mres[4], mres[5], 0, 0);
-      datesList[datesList.length] = d.getTime();
-      datesMap[d.getTime()] = mres[6];
+      datesList[datesList.length] = 'O' + d.getTime();
+      datesMap['O' + d.getTime()] = mres[6];
     }
   }
 
@@ -283,8 +283,8 @@ B48NS.applyStyleToEventBox = function() {
             evdate.setHours( evdate.getHours() - 1 );
           }
         }
-        datesList[datesList.length] = evdate.getTime();
-        datesMap[evdate.getTime()] = mres[4];
+        datesList[datesList.length] = 'R' + evdate.getTime();
+        datesMap['R' + evdate.getTime()] = mres[4];
       }
     }
   }
@@ -296,17 +296,23 @@ B48NS.applyStyleToEventBox = function() {
   var evlist = '';
   for( idx in datesList ) {
     var ts = datesList[idx];
+    var highlightClass = '';
+    if( ts.charAt(0) == 'O' ) {
+        highlightClass = ' b48mw-highlighted-event';
+    }
+    ts = ts.substr(1);
     var d = new Date(ts);
     var evname = datesMap[ts];
+
 
     // datesList is ordered by time and date => If there's an event before
     // we don't put a <dt> anymore
     var dstr = d.toDateString();
     if ( evlist.search(dstr) == -1 ) {
-      evlist += '<dt class="b48mw-event-date">' + dateIcon + ' ' + d.format('dddd, mmmm dS, yyyy') + '</dt>';
+      evlist += '<dt class="b48mw-event-date' + highlightClass + '">' + dateIcon + ' ' + d.format('dddd, mmmm dS, yyyy') + '</dt>';
     }
 
-    evlist += '<dd class="b48mw-event-info"><span class="b48mw-event-time">' + d.getHours2() + ':' + d.getMinutes2() + '</span> - ' + evname + '</dd>';
+    evlist += '<dd class="b48mw-event-info' + highlightClass + '"><span class="b48mw-event-time">' + d.getHours2() + ':' + d.getMinutes2() + '</span> - ' + evname + '</dd>';
   }
 
   var evbox = '<dl class="b48mw-event-list">' + evlist + '</dl>';
@@ -333,7 +339,7 @@ B48NS.applyStyleToNewsList = function() {
 
 
 
-// Makes User: links for usernames in meta fields 
+// Makes User: links for usernames in meta fields
 B48NS.linkifyUsers = function() {
 
   // Base48 Wiki test
@@ -356,8 +362,8 @@ B48NS.linkifyUsers = function() {
     }
     );
 }
- 
-B48NS.fixFloatingImageThumbs = function() { 
+
+B48NS.fixFloatingImageThumbs = function() {
     $('#b48mw-news-box .thumb').each(
       function(i,e) {
         if( $(e).hasClass('tright') ) {

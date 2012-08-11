@@ -49,6 +49,10 @@
   width: 33%;
 }
 
+.b48mw-highlighted-event {
+    color: red;
+}
+
 #b48mw-events .editsection {
   display: none;
 }
