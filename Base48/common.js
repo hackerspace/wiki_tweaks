@@ -218,11 +218,11 @@ B48NS.applyStyleToEventBox = function() {
   var dateIcon = '<i class="icon-calendar"></i>';
 
   var hasObj = function(a, x) {
-    if( this === null ) {
+    if( a === null ) {
       return false;
     }
-    for( idx = 0; idx < this.length; ++idx ) {
-      if( this[idx] == x ) {
+    for( idx = 0; idx < a.length; ++idx ) {
+      if( a[idx] == x ) {
         return true;
       }
     }
