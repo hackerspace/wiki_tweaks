@@ -223,11 +223,11 @@ B48NS.applyStyleToEventBox = function() {
   var datesMap = {};
 
   for( idx in data ) {
-    var mres = data[idx].match(/^(\d\d\d\d-\d\d-\d\d\s+\d\d:\d\d)\s+(.*)$/);
+    var mres = data[idx].match(/^(\d\d\d\d)-(\d\d)-(\d\d)\s+(\d\d):(\d\d)\s+(.*)$/);
     if( mres ) {
-      var d = new Date(Date.parse(mres[1]));
+      var d = new Date(mres[1], mres[2]-1, mres[3], mres[4], mres[5], 0, 0);
       datesList[datesList.length] = d.getTime();
-      datesMap[d.getTime()] = mres[2];
+      datesMap[d.getTime()] = mres[6];
     }
   }
 
