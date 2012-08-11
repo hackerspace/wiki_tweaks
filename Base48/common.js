@@ -215,9 +215,9 @@ B48NS.applyStyleToEventBox = function() {
       }
     }
   );
-  var dateIcon = '<i class="icon-calendar"></i>'
+  var dateIcon = '<i class="icon-calendar"></i>';
 
-  Array.prototype.hasObj = function(x) {
+  var hasObj = function(a, x) {
     if( this === null ) {
       return false;
     }
@@ -227,7 +227,7 @@ B48NS.applyStyleToEventBox = function() {
       }
     }
     return false;
-  };
+  }
 
   // Timestamp values for sorting the events
   var datesList = [];
@@ -287,7 +287,7 @@ B48NS.applyStyleToEventBox = function() {
           }
         }
         var stamp = evdate.getTime();
-        if( !datesList.hasObj( stamp ) ) {
+        if( !hasObj( datesList, stamp ) ) {
           datesList[datesList.length] = stamp;
         }
         if( !(evdate.getTime() in datesMap) ) {
@@ -304,7 +304,7 @@ B48NS.applyStyleToEventBox = function() {
     if( mres ) {
       var d = new Date(mres[1], mres[2]-1, mres[3], mres[4], mres[5], 0, 0);
       var stamp = d.getTime();
-      if( !datesList.hasObj( stamp ) ) {
+      if( !hasObj( datesList, stamp ) ) {
         datesList[datesList.length] = stamp;
       }
       if( !(evdate.getTime() in datesMap) ) {
