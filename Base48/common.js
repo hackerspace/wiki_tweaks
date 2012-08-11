@@ -274,8 +274,12 @@ B48NS.applyStyleToEventBox = function() {
             evdate.setHours( evdate.getHours() - 1 );
           }
         }
-        datesList[datesList.length] = evdate.getTime() + 'R';
-        datesMap[evdate.getTime()] = mres[4];
+        var stamp = evdate.getTime();
+        datesList[datesList.length] = stamp;
+        if( !(evdate.getTime() in datesMap) ) {
+            datesMap[stamp] = [];
+        }        
+        datesMap[stamp][dateMap[stamp].length] = { title: mres[4], regular: true };
       }
     }
   }
@@ -285,8 +289,12 @@ B48NS.applyStyleToEventBox = function() {
     var mres = data[idx].match(/^(\d\d\d\d)-(\d\d)-(\d\d)\s+(\d\d):(\d\d)\s+(.*)$/);
     if( mres ) {
       var d = new Date(mres[1], mres[2]-1, mres[3], mres[4], mres[5], 0, 0);
-      datesList[datesList.length] = d.getTime() + 'O';
-      datesMap[d.getTime()] = mres[6];
+      var stamp = d.getTime();
+      datesList[datesList.length] = stamp;
+      if( !(evdate.getTime() in datesMap) ) {
+        datesMap[stamp] = [];
+      }        
+      datesMap[stamp][dateMap[stamp].length] = { title: mres[4], regular: false };
     }
   }
 
@@ -295,25 +303,27 @@ B48NS.applyStyleToEventBox = function() {
 
   // Generate events list
   var evlist = '';
-  for( idx in datesList ) {
+  for( idx in datesList ) {    
     var ts = datesList[idx];
-    var highlightClass = '';
-    if( ts.charAt(ts.length - 1) == 'O' ) {
+    for( didx in datesMap[idx] ) {
+      var highlightClass = '';
+      if( datesMap[idx][didx].regular === true ) {
         highlightClass = ' b48mw-highlighted-event';
+      }
+      ts = parseInt(ts.slice(0, -1));
+      var d = new Date(ts);
+      var evname = datesmap[idx][didx].title;
+
+
+      // datesList is ordered by time and date => If there's an event before
+      // we don't put a <dt> anymore
+      var dstr = d.toDateString();
+      if ( evlist.search(dstr) == -1 ) {
+        evlist += '<dt class="b48mw-event-date' + highlightClass + '">' + dateIcon + ' ' + d.format('dddd, mmmm dS, yyyy') + '</dt>';
+      }
+
+      evlist += '<dd class="b48mw-event-info' + highlightClass + '"><span class="b48mw-event-time">' + d.getHours2() + ':' + d.getMinutes2() + '</span> - ' + evname + '</dd>';
     }
-    ts = parseInt(ts.slice(0, -1));
-    var d = new Date(ts);
-    var evname = datesMap[ts];
-
-
-    // datesList is ordered by time and date => If there's an event before
-    // we don't put a <dt> anymore
-    var dstr = d.toDateString();
-    if ( evlist.search(dstr) == -1 ) {
-      evlist += '<dt class="b48mw-event-date' + highlightClass + '">' + dateIcon + ' ' + d.format('dddd, mmmm dS, yyyy') + '</dt>';
-    }
-
-    evlist += '<dd class="b48mw-event-info' + highlightClass + '"><span class="b48mw-event-time">' + d.getHours2() + ':' + d.getMinutes2() + '</span> - ' + evname + '</dd>';
   }
 
   var evbox = '<dl class="b48mw-event-list">' + evlist + '</dl>';
