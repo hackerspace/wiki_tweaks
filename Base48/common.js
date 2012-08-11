@@ -311,7 +311,7 @@ B48NS.applyStyleToEventBox = function() {
         highlightClass = ' b48mw-highlighted-event';
       }
       var d = new Date(ts);
-      var evname = datesmap[ts][didx].title;
+      var evname = datesMap[ts][didx].title;
 
 
       // datesList is ordered by time and date => If there's an event before
