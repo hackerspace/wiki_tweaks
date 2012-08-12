@@ -307,7 +307,7 @@ B48NS.applyStyleToEventBox = function() {
       if( !hasObj( datesList, stamp ) ) {
         datesList[datesList.length] = stamp;
       }
-      if( !(evdate.getTime() in datesMap) ) {
+      if( !(d.getTime() in datesMap) ) {
         datesMap[stamp] = [];
       }        
       datesMap[stamp][datesMap[stamp].length] = { title: mres[6], regular: false };
