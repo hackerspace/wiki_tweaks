@@ -107,19 +107,19 @@
   display: none;
 }
 
-.b48mw-news-list {
+#b48mw-news-box dl {
   background-color: transparent;
   border-top: 0;
   padding: 0px;
   margin: 0px;
 }
 
-.b48mw-news-date {
+#b48mw-news-box dl dt {
   font-weight: bold;
   margin-top:10px;
 }
 
-.b48mw-news-content {
+#b48mw-news-box dl dd {
   overflow: auto;
   width: 100%;
   margin: 0px;

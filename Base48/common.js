@@ -346,25 +346,6 @@ B48NS.applyStyleToEventBox = function() {
   $('#b48mw-events-box').html(evbox);
 }
 
-B48NS.applyStyleToNewsList = function() {
-  var newsIcon = '<i class="icon-pushpin"></i>';
-
-  var newsList = '<dl class="b48mw-news-list">';
-  $('#b48mw-news-box li').each(
-    function(i,e) {
-      var mres = $(e).html().trim().match(/(\d\d\d\d-\d\d-\d\d)\s+(.*)$/);
-      if( mres ) {
-        var date = new Date(Date.parse(mres[1]));
-        newsList += '<dt class="b48mw-news-date">' + newsIcon + ' ' + date.format('dddd, mmmm dS, yyyy') + '</dt>';
-        newsList += '<dd class="b48mw-news-content"><div class="b48mw-news-content-wrap">' + mres[2] + '</div></dd>';
-      }
-    }
-  );
-  $('#b48mw-news-box').html( newsList + '</dl>' ).toggle();
-}
-
-
-
 // Makes User: links for usernames in meta fields
 B48NS.linkifyUsers = function() {
 
@@ -386,16 +367,6 @@ B48NS.linkifyUsers = function() {
       }
       $(i).html(newText);
     }
-    );
-}
-
-B48NS.fixFloatingImageThumbs = function() {
-    $('#b48mw-news-box .thumb').each(
-      function(i,e) {
-        if( $(e).hasClass('tright') ) {
-          $(e).removeClass('tright');
-        }
-      }
     );
 }
 
