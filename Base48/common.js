@@ -431,7 +431,6 @@ var base48 = function() {
         B48NS.linkifyUsers();
         setTimeout(B48NS.projectTablesDefaultSort, 500);
         B48NS.applyStyleToEventBox();
-        B48NS.fixFloatingImageThumbs();
         restyleMainPage();
         restyleFeaturedProject();
       }
