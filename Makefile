@@ -1,2 +1,2 @@
 install:
-	cp -R Base48/* /var/www/mediawiki/extensions/Base48/
+	cp -R Base48/* /var/www/smmediawiki/extensions/Base48/
