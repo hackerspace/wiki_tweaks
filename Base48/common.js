@@ -341,6 +341,13 @@ B48NS.applyStyleToEventBox = function() {
   $('#b48mw-events-box').html(evbox);
 }
 
+B48NS.shortenIsoDates = function() {
+  $('.Last-Modified').each(function(i,e){
+      orig = $(e).html();
+      $(e).html(orig.replace(/T\d\d:\d\d:\d\d/, ''));
+  })
+}
+
 var base48 = function() {
   // private
 
@@ -353,6 +360,7 @@ var base48 = function() {
     init: function(){
       if( isMainPage() ) {
         B48NS.applyStyleToEventBox();
+        B48NS.shortenIsoDates();
       }
     }
   }
