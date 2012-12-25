@@ -12,7 +12,7 @@ class Base48Hooks {
 
   public static function leet(&$out, &$skin) {
     global $wgScriptPath;
-    //$out->addScriptFile($wgScriptPath . '/extensions/Base48/common.js');
+    $out->addScriptFile($wgScriptPath . '/extensions/Base48/common.js');
     $out->addStyle($wgScriptPath . '/extensions/Base48/common.css');
     return true;
   }

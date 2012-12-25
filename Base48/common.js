@@ -345,15 +345,12 @@ var base48 = function() {
   // private
 
   var isMainPage = function() {
-      return location.href.indexOf('wiki.base48.cz/Main_Page') != -1;
+      return location.href.indexOf('/Main_Page') != -1;
   };
 
   // public
   return {
     init: function(){
-      if( $('.b48mw-code-box') ) {
-      }
-
       if( isMainPage() ) {
         B48NS.applyStyleToEventBox();
       }
