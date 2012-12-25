@@ -195,11 +195,6 @@ var B48NS = {
   }
 };
 
-B48NS.projectTablesDefaultSort = function() {
-  $('.project-last-modified').click();
-  $('.project-last-modified').click();
-}
-
 B48NS.applyStyleToEventBox = function() {
   var data = [];  // other events
   var rdata = []; // regular events
@@ -429,7 +424,6 @@ var base48 = function() {
 
       if( isMainPage() ) {
         B48NS.linkifyUsers();
-        setTimeout(B48NS.projectTablesDefaultSort, 500);
         B48NS.applyStyleToEventBox();
         restyleMainPage();
         restyleFeaturedProject();
