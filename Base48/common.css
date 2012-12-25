@@ -149,7 +149,7 @@
   width:150px;
 }
 
-.page-Main_Page .firstheading {
+.page-Main_Page #firstHeading {
   display: none;
 }
 
