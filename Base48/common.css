@@ -148,3 +148,15 @@
 .page-Main_Page table th:nth-child(6) {
   width:150px;
 }
+
+.page-Main_Page .firstheading {
+  display: none;
+}
+
+.page-Main_Page #left-navigation {
+  display: none;
+}
+
+.page-Main_Page #ca-view {
+  display: none;
+}

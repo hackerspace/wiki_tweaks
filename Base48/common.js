@@ -372,14 +372,6 @@ var base48 = function() {
       return location.href.indexOf('wiki.base48.cz/Main_Page') != -1;
   };
 
-  var restyleMainPage = function() {
-    $('#firstHeading').hide();
-    $('#left-navigation').hide(); // Page|Discussion
-    //$('#p-cactions').hide();  // page actions (protect, delete, move)
-    $('#ca-view').hide();  // read button
-    //$('#ca-history').hide(); // history button
-  };
-
   var restyleFeaturedProject = function() {
     // Current Featured project details retrieval
                 var cont = $('#b48mw-featured-project');
@@ -425,7 +417,6 @@ var base48 = function() {
       if( isMainPage() ) {
         B48NS.linkifyUsers();
         B48NS.applyStyleToEventBox();
-        restyleMainPage();
         restyleFeaturedProject();
       }
     }
