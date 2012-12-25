@@ -341,30 +341,6 @@ B48NS.applyStyleToEventBox = function() {
   $('#b48mw-events-box').html(evbox);
 }
 
-// Makes User: links for usernames in meta fields
-B48NS.linkifyUsers = function() {
-
-  // Base48 Wiki test
-  $(".base48-wiki-users").each(
-    function(e,i) {
-      var c = $(i).html();
-      if ( c.search('TODO')  != -1 ) {
-        return;
-      }
-      var r = c.replace(/[,\s]+/, function($0, $1){ return $1 ? ',' : ''; });
-      var result = r.split(',');
-      var newText = "";
-      for(x = 0; x < result.length; x++) {
-        if( newText.length > 0 ) {
-          newText += ", ";
-        }
-        newText += '<a href="/User:' + result[x].capitalize() + '">' + result[x] + '</a>'
-      }
-      $(i).html(newText);
-    }
-    );
-}
-
 var base48 = function() {
   // private
 
@@ -379,7 +355,6 @@ var base48 = function() {
       }
 
       if( isMainPage() ) {
-        B48NS.linkifyUsers();
         B48NS.applyStyleToEventBox();
       }
     }
