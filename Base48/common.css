@@ -160,3 +160,8 @@
 .page-Main_Page #ca-view {
   display: none;
 }
+
+.page-Main_Page .wikitable td {
+  padding-right: 10px;
+  padding-left: 10px;
+}
