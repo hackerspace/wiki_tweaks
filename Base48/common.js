@@ -372,42 +372,6 @@ var base48 = function() {
       return location.href.indexOf('wiki.base48.cz/Main_Page') != -1;
   };
 
-  var restyleFeaturedProject = function() {
-    // Current Featured project details retrieval
-                var cont = $('#b48mw-featured-project');
-    var imageLocation     = cont.find('.img img').attr('src');
-    var projectLink     = cont.find('.link a');
-    var projectLinkTitle          = $(projectLink).attr('title');
-    var projectLinkName           = $(projectLink).text();
-    var projectLink     = $(projectLink).attr('href');
-    var description     = cont.find('.desc').html();
-    var github            = cont.find('.github').html();
-    var modifiedDate    = cont.find('.modif').text().trim();
-
-    // New style generation
-    var heading = '<h2 class="b48mw-featured-project-heading">Featured Project</h2>';
-                if(github) {
-                                github = '<li><i class="icon-github-sign"></i>'+github+'</li>';
-                }
-    var details = '<h3 class="b48mw-title">' + projectLinkName + '</h3>'
-          + '<a href="' + projectLink + '">'
-          + '<img src="' + imageLocation + '" alt="' + projectLinkTitle + ' project image" /></a>'
-          + '<div class="b48mw-project-description">' + description + ''
-          + '<ul>'
-          + '<li><i class="icon-file"></i> <a href="' + projectLink + '">Project page</a></li>'
-          + github
-          + '<li><i class="icon-time"></i> Updated: ' + dateFormat( modifiedDate, 'dddd, mmmm dS, yyyy') + '</li>'
-          + '</div>'
-          + '</ul>'
-          ;
-    var content = '<div class="b48mw-featured-project-container">' + details + '</div>';
-
-    $('#b48mw-featured-project').html(heading + content);
-    /*$('#b48mw-featured-project').click(function() {
-      window.location.href = projectLink;
-    });*/
-  }
-
   // public
   return {
     init: function(){
@@ -417,7 +381,6 @@ var base48 = function() {
       if( isMainPage() ) {
         B48NS.linkifyUsers();
         B48NS.applyStyleToEventBox();
-        restyleFeaturedProject();
       }
     }
   }
