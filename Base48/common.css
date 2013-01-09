@@ -76,22 +76,22 @@
   display: none;
 }
 
-.b48mw-event-list {
+#b48mw-events-box dl {
   color: #333;
 }
 
-.b48mw-event-info {
+#b48ms-events-box dl dd {
   display: block;
   margin-left: 20px;
   font-family: Verdana,Arial;
 }
 
-.b48mw-event-date {
+#b48ms-events-box dl dt {
   display: block;
   margin-top: 10px;
 }
 
-.b48mw-event-date:first {
+#b48ms-events-box dl dt:first {
   margin-top: 5px;
 }
 
