@@ -1,3 +1,4 @@
+/* test */
 /* Any JavaScript here will be loaded for all users on every page load. */
 // General purpose functions
 if( typeof(String.prototype.capitalize) === "undefined" )
