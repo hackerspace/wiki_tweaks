@@ -80,18 +80,18 @@
   color: #333;
 }
 
-#b48ms-events-box dl dd {
+#b48mw-events-box dl dd {
   display: block;
   margin-left: 20px;
   font-family: Verdana,Arial;
 }
 
-#b48ms-events-box dl dt {
+#b48mw-events-box dl dt {
   display: block;
   margin-top: 10px;
 }
 
-#b48ms-events-box dl dt:first {
+#b48mw-events-box dl dt:first {
   margin-top: 5px;
 }
 
